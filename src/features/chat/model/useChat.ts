@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useStore } from "react-redux";
 import { ApiError } from "../../../api/client";
 import { greenApi, MAX_MESSAGE_LENGTH } from "../../../api/greenApi";
 import { parseIncomingMessage } from "../../../api/notifications";
@@ -11,7 +11,6 @@ import {
   chatsReset,
   messageAdded,
   selectChatByPhone,
-  selectChats,
   type ChatState,
 } from "./chatSlice";
 import { usePolling } from "./usePolling";
@@ -22,7 +21,6 @@ export function useChat(
 ) {
   const dispatch = useDispatch();
   const store = useStore<{ chat: ChatState }>();
-  const chats = useSelector(selectChats);
 
   // при выходе очищаем чаты
   useEffect(() => {
@@ -120,5 +118,5 @@ export function useChat(
     [credentials, dispatch, handleAuthError],
   );
 
-  return { chats, createChat, send };
+  return { createChat, send };
 }

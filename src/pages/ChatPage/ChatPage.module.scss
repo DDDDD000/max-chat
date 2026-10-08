@@ -1,0 +1,14 @@
+.page {
+  height: 100vh;
+  height: 100dvh; // учитывает панель браузера на телефоне
+
+  background-color: #121214;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+}

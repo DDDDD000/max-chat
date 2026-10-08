@@ -66,8 +66,6 @@ export const chatReducer = chatSlice.reducer;
 // Селекторы
 type StateWithChat = { chat: ChatState };
 
-export const selectChats = (state: StateWithChat) => state.chat.chats;
-
 export const selectChatById = (state: StateWithChat, id: string | null) =>
   id === null ? undefined : state.chat.chats.find((c) => c.id === id);
 
